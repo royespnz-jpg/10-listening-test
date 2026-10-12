@@ -266,29 +266,27 @@ function selectHtml(id, group, choices, label, placeholder) {
 
 function matchingHtml(part) {
     const numbers = part.images.map(img => img.n);
-    const rows = part.countries.map(c => `
+    // As on the printed exam: one row per country, with the pictures one under another (1, 2, 3).
+    const rows = part.countries.map((c, i) => {
+        const img = part.images[i];
+        return `
         <div class="match-row" data-q="${c.id}">
             <span class="country">${esc(c.name)}</span>
             <span class="paren">(</span>
             ${selectHtml(c.id, "matching", numbers, `Number for ${c.name}`, "—")}
             <span class="paren">)</span>
-        </div>`).join("");
-    const pics = part.images.map(img => `
+        </div>
         <figure class="match-pic">
             <span class="pic-num">${img.n}</span>
             <img src="${img.src}" alt="${esc(img.alt)}" loading="lazy">
-        </figure>`).join("");
+        </figure>`;
+    }).join("");
     return `
 <article class="card matching reveal">
-    <div class="match-grid">
-        <div class="col">
-            <h3 class="col-title">Column A</h3>
-            ${rows}
-        </div>
-        <div class="col">
-            <h3 class="col-title">Column B</h3>
-            <div class="pics">${pics}</div>
-        </div>
+    <div class="match-table">
+        <h3 class="col-title">Column A</h3>
+        <h3 class="col-title">Column B</h3>
+        ${rows}
     </div>
 </article>`;
 }
