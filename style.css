@@ -782,14 +782,14 @@ form.locked select.pick{opacity:.72; cursor:not-allowed;}
 /* =====================================================================
    MATCHING — countries (Column A) and pictures (Column B)
    ===================================================================== */
-.match-grid{
+.match-table{
     display:grid;
-    grid-template-columns:minmax(210px, .9fr) 1.6fr;
-    gap:26px;
-    align-items:start;
+    grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+    gap:20px 30px;
+    align-items:center;
 }
 .col-title{
-    margin:0 0 14px;
+    margin:0;
     font-family:'Bricolage Grotesque',sans-serif;
     font-size:15px;
     font-weight:800;
@@ -802,7 +802,6 @@ form.locked select.pick{opacity:.72; cursor:not-allowed;}
     align-items:center;
     gap:8px;
     padding:12px 14px;
-    margin-bottom:10px;
     border-radius:14px;
     border:1px solid rgba(255,255,255,.12);
     background:rgba(255,255,255,.04);
@@ -818,13 +817,10 @@ form.locked select.pick{opacity:.72; cursor:not-allowed;}
     color:var(--muted);
 }
 .match-row select.pick{width:76px; text-align:center; padding-right:30px; background-position:right 10px center;}
-.pics{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:12px;
-}
 .match-pic{
     position:relative;
+    justify-self:center;
+    width:min(100%, 240px);
     margin:0;
 }
 .match-pic img{
@@ -920,9 +916,11 @@ form.locked select.pick{opacity:.72; cursor:not-allowed;}
 /* On a phone the boxes go under the picture, each with its number. */
 @media (max-width:640px){
     .audio-num{font-size:11.5px; letter-spacing:.12em; padding:7px 13px;}
-    .match-grid{grid-template-columns:1fr; gap:18px;}
-    .match-grid .col:last-child{order:-1;}
-    .pics{gap:9px;}
+    .match-table{grid-template-columns:minmax(0, 1fr) 118px; gap:16px 12px;}
+    .match-row{padding:10px 10px 10px 12px; gap:6px;}
+    .country{font-size:15px;}
+    .paren{display:none;}
+    .match-row select.pick{width:66px;}
     .pic-num{width:26px; height:26px; font-size:13px; top:-8px; left:-6px;}
     .id-figure{overflow:visible; border:none;}
     .id-figure > img{border-radius:14px; border:1px solid rgba(255,255,255,.16);}
