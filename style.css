@@ -726,15 +726,8 @@ form.locked .student-info input{opacity:.72;}
 }
 
 /* =====================================================================
-   10TH GRADE: GENERAL INSTRUCTIONS, PART HEADERS, DROP-DOWNS
+   10TH GRADE: PART HEADERS, DROP-DOWNS
    ===================================================================== */
-.general{
-    margin:14px 0 0;
-    padding-left:20px;
-    font-size:14px;
-    line-height:1.65;
-    color:#aeb8d8;
-}
 .part-points{
     font-size:12px;
     font-weight:800;

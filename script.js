@@ -190,9 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
         new AudioController(`audio${i}`, `playBtn${i}`, `counter${i}`);
     }
 
-    const date = document.getElementById("examDate");
-    if (date) date.textContent = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
-
     document.getElementById("quizForm").addEventListener("submit", checkAnswers);
 
     enableSelectionStyling();
